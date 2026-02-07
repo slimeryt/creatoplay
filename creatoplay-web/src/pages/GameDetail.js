@@ -65,7 +65,7 @@ function GameDetail() {
             <button className="play-btn" onClick={handlePlay} disabled={launching}>
               <FiPlay /> {launching ? 'Launching...' : 'Play'}
             </button>
-            <a href="/CreatoplaySetup.zip" download className="download-btn" title="Download Game">
+            <a href="https://github.com/slimeryt/creatoplay/releases/tag/V0.0.148-ALPHA" className="download-btn" title="Download Game">
               <FiDownload />
             </a>
             <button className="server-btn" onClick={() => setShowServerInput(!showServerInput)} title="Server Settings">
