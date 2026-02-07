@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FiPlay, FiHeart, FiThumbsUp, FiThumbsDown, FiServer } from 'react-icons/fi';
+import { FiPlay, FiThumbsUp, FiThumbsDown, FiServer, FiDownload } from 'react-icons/fi';
 import './GameDetail.css';
 
 const gamesData = {
@@ -34,10 +34,8 @@ function GameDetail() {
     setLaunching(true);
     const username = userProfile?.username || 'Guest';
     
-    // Save server IP for next time
     localStorage.setItem('serverIP', serverIP);
     
-    // Get avatar colors
     const avatar = userProfile?.avatar || {};
     const head = (avatar.headColor || '#f5c469').replace('#', '');
     const torso = (avatar.torsoColor || '#4a90d9').replace('#', '');
@@ -67,6 +65,9 @@ function GameDetail() {
             <button className="play-btn" onClick={handlePlay} disabled={launching}>
               <FiPlay /> {launching ? 'Launching...' : 'Play'}
             </button>
+            <a href="/CreatoplaySetup.zip" download className="download-btn" title="Download Game">
+              <FiDownload />
+            </a>
             <button className="server-btn" onClick={() => setShowServerInput(!showServerInput)} title="Server Settings">
               <FiServer />
             </button>
