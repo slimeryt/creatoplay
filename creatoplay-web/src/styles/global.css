@@ -1,0 +1,181 @@
+/* ============================================
+   CREATOPLAY - Roblox-Accurate Dark Theme
+   ============================================ */
+
+:root {
+  --bg-primary: #191a1f;
+  --bg-secondary: #232527;
+  --bg-tertiary: #32353e;
+  --bg-hover: #3a3d47;
+  --bg-card: #232527;
+  --bg-input: #3b3e48;
+  
+  --accent-green: #02b757;
+  --accent-green-hover: #00d166;
+  --accent-blue: #0066cc;
+  --accent-red: #e34c4c;
+  
+  --text-primary: #f5f5f5;
+  --text-secondary: #bdbebe;
+  --text-muted: #838383;
+  --text-link: #00a2ff;
+  
+  --border-color: #3b3e47;
+  --border-light: #5a5d66;
+  
+  --navbar-height: 48px;
+  --sidebar-width: 180px;
+  --border-radius: 4px;
+  --border-radius-lg: 8px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { font-size: 14px; }
+
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+a { color: var(--text-link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+input, textarea { font-family: inherit; outline: none; }
+
+/* Layout */
+.app-layout { min-height: 100vh; }
+
+.main-content {
+  display: flex;
+  padding-top: var(--navbar-height);
+}
+
+.page-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 16px 20px;
+  background: var(--bg-secondary);
+  min-height: calc(100vh - var(--navbar-height));
+  border-radius: 8px 0 0 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--accent-green);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--accent-green-hover);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-hover);
+}
+
+.btn-large {
+  padding: 10px 24px;
+  font-size: 14px;
+}
+
+/* Forms */
+.form-group { margin-bottom: 12px; }
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.form-input:focus { border-color: var(--text-muted); }
+.form-input::placeholder { color: var(--text-muted); }
+
+/* Game Grid */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+/* Sections */
+.section { margin-bottom: 24px; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.section-link {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 16px;
+}
+
+.tab {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tab:hover { color: var(--text-secondary); }
+.tab.active { color: var(--text-primary); border-bottom-color: var(--accent-green); }
+
+/* Utility */
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+.mt-2 { margin-top: 16px; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--bg-hover); border-radius: 3px; }

@@ -1,0 +1,53 @@
+.game-card {
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.game-card:hover {
+  transform: translateY(-2px);
+}
+
+.game-thumbnail {
+  aspect-ratio: 1/1;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background: var(--bg-tertiary);
+}
+
+.game-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.15s;
+}
+
+.game-card:hover .game-thumbnail img {
+  opacity: 0.85;
+}
+
+.game-info {
+  padding: 8px 2px;
+}
+
+.game-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.game-rating svg {
+  font-size: 10px;
+  color: var(--accent-green);
+}

@@ -1,0 +1,166 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #191a1f;
+  padding: 20px;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+}
+
+.auth-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f5f5f5;
+  margin-bottom: 24px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-error {
+  background: rgba(227, 76, 76, 0.15);
+  border: 1px solid rgba(227, 76, 76, 0.3);
+  color: #e34c4c;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  text-align: left;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: #3b3e48;
+  border: 1px solid #5a5d66;
+  border-radius: 4px;
+  color: #f5f5f5;
+  font-size: 14px;
+}
+
+.auth-input::placeholder {
+  color: #838383;
+}
+
+.auth-input:focus {
+  border-color: #838383;
+  outline: none;
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #5a5d66;
+  border-radius: 4px;
+  color: #f5f5f5;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.auth-btn:hover {
+  background: #32353e;
+  border-color: #838383;
+}
+
+.auth-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.forgot-link {
+  display: block;
+  margin: 16px 0;
+  font-size: 13px;
+  color: #00a2ff;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.auth-divider {
+  height: 1px;
+  background: #3b3e47;
+  margin: 16px 0;
+}
+
+.auth-btn-secondary {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: transparent;
+  border: 1px solid #5a5d66;
+  border-radius: 4px;
+  color: #f5f5f5;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.auth-btn-secondary:hover {
+  background: #32353e;
+  border-color: #838383;
+}
+
+.auth-footer {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #838383;
+}
+
+.auth-footer a {
+  color: #00a2ff;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Register page specific */
+.auth-subtitle {
+  font-size: 13px;
+  color: #838383;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  font-size: 12px;
+  color: #838383;
+  margin: 8px 0;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #02b757;
+}
+
+.checkbox-row a {
+  color: #00a2ff;
+}
