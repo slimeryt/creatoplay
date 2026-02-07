@@ -31,7 +31,7 @@ function GameDetail() {
   const handlePlay = () => {
   setLaunching(true);
   const username = userProfile?.username || 'Guest';
-  const server = '127.0.0.1';
+  const server = '192.168.1.24';
   
   // Get avatar colors (remove # from hex)
   const avatar = userProfile?.avatar || {};
