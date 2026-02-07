@@ -31,18 +31,21 @@ function GameDetail() {
   }, [gameId]);
 
   const handlePlay = () => {
-    setLaunching(true);
-    const username = userProfile?.username || 'Guest';
-    
-    localStorage.setItem('serverIP', serverIP);
-    
-    const avatar = userProfile?.avatar || {};
-    const head = (avatar.headColor || '#f5c469').replace('#', '');
-    const torso = (avatar.torsoColor || '#4a90d9').replace('#', '');
-    const arms = (avatar.armsColor || '#f5c469').replace('#', '');
-    const legs = (avatar.legsColor || '#2d5a8a').replace('#', '');
-    
-    window.location.href = `creatoplay://play/${gameId}?user=${encodeURIComponent(username)}&server=${serverIP}&head=${head}&torso=${torso}&arms=${arms}&legs=${legs}`;
+  setLaunching(true);
+  const username = userProfile?.username || 'Guest';
+  
+  localStorage.setItem('serverIP', serverIP);
+  
+  const avatar = userProfile?.avatar || {};
+  const head = (avatar.headColor || '#f5c469').replace('#', '');
+  const torso = (avatar.torsoColor || '#4a90d9').replace('#', '');
+  const arms = (avatar.armsColor || '#f5c469').replace('#', '');
+  const legs = (avatar.legsColor || '#2d5a8a').replace('#', '');
+  const hat = avatar.hat || 'none';
+  const hatColor = (avatar.hatColor || '#e74c3c').replace('#', '');
+  const face = avatar.face || 'default';
+  
+  window.location.href = `creatoplay://play/${gameId}?user=${encodeURIComponent(username)}&server=${serverIP}&head=${head}&torso=${torso}&arms=${arms}&legs=${legs}&hat=${hat}&hatColor=${hatColor}&face=${face}`;
     setTimeout(() => {
       setLaunching(false);
     }, 1000);
