@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FiPlay, FiHeart, FiThumbsUp, FiThumbsDown } from 'react-icons/fi';
+import { FiPlay, FiHeart, FiThumbsUp, FiThumbsDown, FiServer } from 'react-icons/fi';
 import './GameDetail.css';
 
 const gamesData = {
@@ -13,6 +13,8 @@ function GameDetail() {
   const { userProfile } = useAuth();
   const [game, setGame] = useState(null);
   const [launching, setLaunching] = useState(false);
+  const [serverIP, setServerIP] = useState(() => localStorage.getItem('serverIP') || '127.0.0.1');
+  const [showServerInput, setShowServerInput] = useState(false);
 
   useEffect(() => {
     const data = gamesData[gameId] || {
@@ -29,22 +31,24 @@ function GameDetail() {
   }, [gameId]);
 
   const handlePlay = () => {
-  setLaunching(true);
-  const username = userProfile?.username || 'Guest';
-  const server = '192.168.1.24';
-  
-  // Get avatar colors (remove # from hex)
-  const avatar = userProfile?.avatar || {};
-  const head = (avatar.headColor || '#f5c469').replace('#', '');
-  const torso = (avatar.torsoColor || '#4a90d9').replace('#', '');
-  const arms = (avatar.armsColor || '#f5c469').replace('#', '');
-  const legs = (avatar.legsColor || '#2d5a8a').replace('#', '');
-  
-  window.location.href = `creatoplay://play/${gameId}?user=${encodeURIComponent(username)}&server=${server}&head=${head}&torso=${torso}&arms=${arms}&legs=${legs}`;
-  setTimeout(() => {
-    setLaunching(false);
-  }, 1000);
-};
+    setLaunching(true);
+    const username = userProfile?.username || 'Guest';
+    
+    // Save server IP for next time
+    localStorage.setItem('serverIP', serverIP);
+    
+    // Get avatar colors
+    const avatar = userProfile?.avatar || {};
+    const head = (avatar.headColor || '#f5c469').replace('#', '');
+    const torso = (avatar.torsoColor || '#4a90d9').replace('#', '');
+    const arms = (avatar.armsColor || '#f5c469').replace('#', '');
+    const legs = (avatar.legsColor || '#2d5a8a').replace('#', '');
+    
+    window.location.href = `creatoplay://play/${gameId}?user=${encodeURIComponent(username)}&server=${serverIP}&head=${head}&torso=${torso}&arms=${arms}&legs=${legs}`;
+    setTimeout(() => {
+      setLaunching(false);
+    }, 1000);
+  };
 
   if (!game) return <div>Loading...</div>;
 
@@ -59,11 +63,29 @@ function GameDetail() {
             <h1>{game.title}</h1>
             <p>By <Link to="/profile">{game.creator}</Link></p>
           </div>
-          <button className="play-btn" onClick={handlePlay} disabled={launching}>
-            <FiPlay /> {launching ? 'Launching...' : 'Play'}
-          </button>
+          <div className="play-section">
+            <button className="play-btn" onClick={handlePlay} disabled={launching}>
+              <FiPlay /> {launching ? 'Launching...' : 'Play'}
+            </button>
+            <button className="server-btn" onClick={() => setShowServerInput(!showServerInput)} title="Server Settings">
+              <FiServer />
+            </button>
+          </div>
         </div>
       </div>
+
+      {showServerInput && (
+        <div className="server-input-box">
+          <label>Server IP:</label>
+          <input 
+            type="text" 
+            value={serverIP} 
+            onChange={(e) => setServerIP(e.target.value)}
+            placeholder="127.0.0.1"
+          />
+          <span className="server-hint">Use 127.0.0.1 for local, or friend's IP to join them</span>
+        </div>
+      )}
 
       <div className="game-content">
         <div className="game-main">
