@@ -29,15 +29,22 @@ function GameDetail() {
   }, [gameId]);
 
   const handlePlay = () => {
-    setLaunching(true);
-    // Pass username and server info to the client
-    const username = userProfile?.username || 'Guest';
-    const server = '127.0.0.1'; // Could be dynamic based on game servers
-    window.location.href = `creatoplay://play/${gameId}?user=${encodeURIComponent(username)}&server=${server}`;
-    setTimeout(() => {
-      setLaunching(false);
-    }, 1000);
-  };
+  setLaunching(true);
+  const username = userProfile?.username || 'Guest';
+  const server = '127.0.0.1';
+  
+  // Get avatar colors (remove # from hex)
+  const avatar = userProfile?.avatar || {};
+  const head = (avatar.headColor || '#f5c469').replace('#', '');
+  const torso = (avatar.torsoColor || '#4a90d9').replace('#', '');
+  const arms = (avatar.armsColor || '#f5c469').replace('#', '');
+  const legs = (avatar.legsColor || '#2d5a8a').replace('#', '');
+  
+  window.location.href = `creatoplay://play/${gameId}?user=${encodeURIComponent(username)}&server=${server}&head=${head}&torso=${torso}&arms=${arms}&legs=${legs}`;
+  setTimeout(() => {
+    setLaunching(false);
+  }, 1000);
+};
 
   if (!game) return <div>Loading...</div>;
 
