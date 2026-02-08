@@ -15,6 +15,9 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Avatar from './pages/Avatar';
 import Friends from './pages/Friends';
+import Settings from './pages/Settings';
+import Create from './pages/Create';
+import Robux from './pages/Robux';
 
 // Protected Route wrapper
 function ProtectedRoute({ children }) {
@@ -77,6 +80,9 @@ function AppRoutes() {
           <AuthenticatedLayout><Friends /></AuthenticatedLayout>
         </ProtectedRoute>
       } />
+      <Route path ="/settings" element={<Settings />} />
+      <Route path ="/create" element={<Create />} />
+      <Route path ="/robux" element={<Robux />} />
     </Routes>
   );
 }

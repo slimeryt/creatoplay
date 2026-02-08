@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FiSearch, FiBell, FiSettings } from 'react-icons/fi';
+import { FiSearch, FiBell, FiSettings, FiUser, FiLogOut, FiChevronDown } from 'react-icons/fi';
 import './Navbar.css';
 
 function Navbar() {
   const { currentUser, userProfile, logout } = useAuth();
-  const [searchQuery, setSearchQuery] = useState('');
-  const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/discover?search=${encodeURIComponent(searchQuery)}`);
-    }
-  };
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleLogout = async () => {
     await logout();
@@ -24,57 +16,69 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="navbar-left">
-        <Link to="/" className="navbar-logo">
-          <span className="logo-text">CREATOPLAY</span>
+      <div className="nav-left">
+        <Link to="/" className="nav-logo">
+          <span className="logo-icon">C</span>
+          <span className="logo-text">Creatoplay</span>
         </Link>
-        
-        <div className="navbar-links">
-          <Link to="/charts" className="nav-link">Charts</Link>
-          <Link to="/discover" className="nav-link">Discover</Link>
-          <Link to="/create" className="nav-link">Create</Link>
-          <Link to="/robux" className="nav-link robux-link">Robux</Link>
+        <div className="nav-links">
+          <Link to="/discover">Discover</Link>
+          <Link to="/charts">Charts</Link>
+          <Link to="/create">Create</Link>
+          <Link to="/robux" className="robux-link">
+            <span className="robux-icon">R$</span>
+            <span>{userProfile?.robux || 0}</span>
+          </Link>
         </div>
       </div>
 
-      <div className="navbar-center">
-        <form onSubmit={handleSearch} className="navbar-search">
-          <FiSearch className="search-icon" />
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </form>
+      <div className="nav-center">
+        <div className="search-bar">
+          <FiSearch />
+          <input type="text" placeholder="Search games..." />
+        </div>
       </div>
 
-      <div className="navbar-right">
-        <Link to="/profile" className="user-link">
-          <div className="user-avatar" style={{ backgroundColor: userProfile?.avatar?.headColor || '#4a90d9' }}>
-            {userProfile?.username?.[0]?.toUpperCase() || 'U'}
-          </div>
-          <span className="user-name">{userProfile?.username || 'User'}</span>
-        </Link>
-
-        <button className="icon-btn notification-btn">
-          <FiBell />
-          <span className="badge">1</span>
-        </button>
-
-        <div className="robux-display">
-          <span className="robux-icon">R$</span>
-          <span className="robux-amount">{userProfile?.robux || 0}</span>
-        </div>
-
-        <button className="icon-btn" onClick={() => setShowDropdown(!showDropdown)}>
-          <FiSettings />
-        </button>
-
-        {showDropdown && (
-          <div className="dropdown-menu">
-            <Link to="/settings" className="dropdown-item">Settings</Link>
-            <button className="dropdown-item" onClick={handleLogout}>Logout</button>
+      <div className="nav-right">
+        {currentUser ? (
+          <>
+            <button className="nav-icon-btn">
+              <FiBell />
+            </button>
+            <div className="profile-dropdown" onMouseLeave={() => setShowDropdown(false)}>
+              <button className="profile-btn" onClick={() => setShowDropdown(!showDropdown)}>
+                <div className="profile-avatar" style={{ backgroundColor: userProfile?.avatar?.torsoColor || '#4a90d9' }}>
+                  {userProfile?.username?.[0]?.toUpperCase() || 'U'}
+                </div>
+                <span className="profile-name">{userProfile?.username || 'User'}</span>
+                <FiChevronDown />
+              </button>
+              {showDropdown && (
+                <div className="dropdown-menu">
+                  <Link to="/profile" onClick={() => setShowDropdown(false)}>
+                    <FiUser /> Profile
+                  </Link>
+                  <Link to="/avatar" onClick={() => setShowDropdown(false)}>
+                    <FiUser /> Avatar
+                  </Link>
+                  <Link to="/friends" onClick={() => setShowDropdown(false)}>
+                    <FiUser /> Friends
+                  </Link>
+                  <Link to="/settings" onClick={() => setShowDropdown(false)}>
+                    <FiSettings /> Settings
+                  </Link>
+                  <div className="dropdown-divider"></div>
+                  <button onClick={handleLogout}>
+                    <FiLogOut /> Log Out
+                  </button>
+                </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <div className="auth-buttons">
+            <Link to="/login" className="login-btn">Log In</Link>
+            <Link to="/register" className="signup-btn">Sign Up</Link>
           </div>
         )}
       </div>

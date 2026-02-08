@@ -1,0 +1,271 @@
+.robux-page {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.robux-header {
+  background: linear-gradient(135deg, #00b06f 0%, #00875a 100%);
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.robux-balance {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.robux-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  padding: 12px;
+  color: white;
+}
+
+.balance-label {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+.balance-amount {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
+
+.robux-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.robux-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--bg-secondary);
+  border: none;
+  border-radius: 4px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.robux-tabs button:hover {
+  background: var(--bg-tertiary);
+}
+
+.robux-tabs button.active {
+  background: var(--accent-green);
+  color: white;
+}
+
+.robux-content {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 25px;
+}
+
+.robux-content h2 {
+  margin: 0 0 10px 0;
+  color: var(--text-primary);
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  margin: 0 0 25px 0;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.package-card {
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.package-card:hover {
+  border-color: var(--accent-green);
+}
+
+.package-card.popular {
+  border-color: var(--accent-green);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-green);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 10px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.package-amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.package-amount svg {
+  color: var(--accent-green);
+}
+
+.package-bonus {
+  display: block;
+  color: var(--accent-green);
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.buy-btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--accent-green);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.buy-btn:hover {
+  opacity: 0.9;
+}
+
+.premium-benefits {
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.premium-benefits h3 {
+  margin: 0 0 15px 0;
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.premium-benefits ul {
+  margin: 0;
+  padding: 0 0 0 20px;
+  color: var(--text-secondary);
+}
+
+.premium-benefits li {
+  margin-bottom: 8px;
+}
+
+.premium-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.premium-card {
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.premium-card:hover {
+  border-color: #667eea;
+}
+
+.premium-card h3 {
+  margin: 0 0 15px 0;
+  color: var(--text-primary);
+}
+
+.premium-robux {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.premium-robux svg {
+  color: var(--accent-green);
+}
+
+.premium-robux small {
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--text-secondary);
+}
+
+.subscribe-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.subscribe-btn:hover {
+  opacity: 0.9;
+}
+
+.history-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+
+.history-empty svg {
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+.robux-disclaimer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+
+.robux-disclaimer p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
