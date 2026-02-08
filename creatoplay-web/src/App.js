@@ -18,6 +18,9 @@ import Friends from './pages/Friends';
 import Settings from './pages/Settings';
 import Create from './pages/Create';
 import Robux from './pages/Robux';
+import Messages from './pages/Messages';
+import Inventory from './pages/Inventory';
+import Trade from './pages/Trade';
 
 // Protected Route wrapper
 function ProtectedRoute({ children }) {
@@ -83,6 +86,9 @@ function AppRoutes() {
       <Route path ="/settings" element={<Settings />} />
       <Route path ="/create" element={<Create />} />
       <Route path ="/robux" element={<Robux />} />
+      <Route path ="/messages" element={<Messages />} />
+      <Route path ="/inventory" element={<Inventory />} />
+      <Route path ="/trade" element={<Trade />} />
     </Routes>
   );
 }
