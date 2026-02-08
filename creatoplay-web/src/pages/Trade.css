@@ -1,12 +1,12 @@
 .trade-page {
   padding: 20px;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .trade-tabs {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 20px;
 }
 
@@ -14,18 +14,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 10px 18px;
   background: var(--bg-secondary);
   border: none;
   border-radius: 4px;
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
-  transition: all 0.2s;
-}
-
-.trade-tabs button:hover {
-  background: var(--bg-tertiary);
 }
 
 .trade-tabs button.active {
@@ -33,19 +28,38 @@
   color: white;
 }
 
+.trade-message {
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.trade-message.success {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.trade-message.error {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
 .trades-list h2,
 .new-trade h2 {
-  margin: 0 0 20px 0;
-  font-size: 20px;
+  margin: 0 0 15px 0;
+  font-size: 18px;
   color: var(--text-primary);
 }
 
-.empty-trades {
+.empty-trades,
+.no-partner {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px;
+  padding: 50px 20px;
   background: var(--bg-secondary);
   border-radius: 8px;
   color: var(--text-secondary);
@@ -57,15 +71,10 @@
   color: var(--text-primary);
 }
 
-.empty-trades p {
-  margin: 0;
-  font-size: 14px;
-}
-
 .trades-grid {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .trade-card {
@@ -74,15 +83,13 @@
   padding: 15px;
 }
 
-.trade-status {
-  margin-bottom: 12px;
-}
-
 .trade-status span {
+  display: inline-block;
   padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 12px;
+  border-radius: 10px;
+  font-size: 11px;
   font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .trade-status .pending {
@@ -103,7 +110,7 @@
 .trade-content {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .trade-side {
@@ -113,21 +120,32 @@
 .trade-user {
   display: block;
   color: var(--text-primary);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .trade-items {
   display: flex;
-  gap: 8px;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
-.trade-items img {
-  width: 50px;
-  height: 50px;
+.trade-item {
+  width: 40px;
+  height: 40px;
   border-radius: 6px;
-  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.trade-items .no-items {
+  color: var(--text-secondary);
+  font-size: 12px;
 }
 
 .trade-arrow {
@@ -135,17 +153,9 @@
 }
 
 .trade-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 15px;
-  padding-top: 12px;
+  margin-top: 12px;
+  padding-top: 10px;
   border-top: 1px solid var(--border-color);
-}
-
-.trade-date {
-  color: var(--text-secondary);
-  font-size: 12px;
 }
 
 .trade-actions {
@@ -153,7 +163,9 @@
   gap: 8px;
 }
 
-.accept-btn, .decline-btn {
+.accept-btn,
+.decline-btn,
+.delete-btn {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -179,6 +191,11 @@
   background: #f44336;
   border-color: #f44336;
   color: white;
+}
+
+.delete-btn {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
 }
 
 .trade-search {
@@ -214,35 +231,38 @@
   cursor: pointer;
 }
 
-.no-partner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
-  background: var(--bg-secondary);
-  border-radius: 8px;
-  color: var(--text-secondary);
-  gap: 15px;
-}
-
 .trade-builder {
   background: var(--bg-secondary);
   border-radius: 8px;
   padding: 20px;
 }
 
-.trade-column h3 {
-  margin: 0 0 15px 0;
-  font-size: 16px;
+.trade-partner-info {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.trade-partner-info strong {
   color: var(--text-primary);
+}
+
+.trade-builder h3 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.no-items-msg {
+  color: var(--text-secondary);
+  font-size: 13px;
 }
 
 .items-selector {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .selectable-item {
@@ -252,7 +272,6 @@
   text-align: center;
   cursor: pointer;
   border: 2px solid transparent;
-  transition: all 0.2s;
 }
 
 .selectable-item:hover {
@@ -264,64 +283,22 @@
   background: rgba(76, 175, 80, 0.1);
 }
 
-.selectable-item img {
-  width: 50px;
-  height: 50px;
-  border-radius: 4px;
-  object-fit: cover;
-  margin-bottom: 8px;
+.item-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .selectable-item span {
-  display: block;
   color: var(--text-primary);
-  font-size: 12px;
-}
-
-.trade-preview {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  padding: 20px;
-  background: var(--bg-tertiary);
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.preview-section {
-  text-align: center;
-}
-
-.preview-section h4 {
-  margin: 0 0 10px 0;
-  color: var(--text-secondary);
-  font-size: 13px;
-}
-
-.preview-items {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  min-height: 50px;
-  align-items: center;
-}
-
-.preview-items img {
-  width: 50px;
-  height: 50px;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-.preview-items .no-items {
-  color: var(--text-secondary);
-  font-size: 13px;
-}
-
-.preview-arrow {
-  color: var(--text-secondary);
-  font-size: 20px;
+  font-size: 11px;
 }
 
 .send-trade-btn {
@@ -332,13 +309,7 @@
   border-radius: 4px;
   color: white;
   font-size: 14px;
-  font-weight: 500;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.send-trade-btn:hover {
-  opacity: 0.9;
 }
 
 .send-trade-btn:disabled {

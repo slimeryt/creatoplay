@@ -21,6 +21,7 @@ import Robux from './pages/Robux';
 import Messages from './pages/Messages';
 import Inventory from './pages/Inventory';
 import Trade from './pages/Trade';
+import Shop from './pages/Shop';
 
 // Protected Route wrapper
 function ProtectedRoute({ children }) {
@@ -89,6 +90,7 @@ function AppRoutes() {
       <Route path ="/messages" element={<Messages />} />
       <Route path ="/inventory" element={<Inventory />} />
       <Route path ="/trade" element={<Trade />} />
+      <Route path ="/shop" element={<Shop />} />
     </Routes>
   );
 }

@@ -1,0 +1,202 @@
+.shop-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.shop-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 24px;
+  color: var(--text-primary);
+}
+
+.robux-balance {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--bg-secondary);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.robux-balance .robux-icon {
+  color: var(--accent-green);
+}
+
+.shop-message {
+  padding: 12px 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.shop-message.success {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.shop-message.error {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.shop-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.shop-categories {
+  display: flex;
+  gap: 8px;
+}
+
+.shop-categories button {
+  padding: 8px 16px;
+  background: var(--bg-secondary);
+  border: none;
+  border-radius: 4px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.shop-categories button:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.shop-categories button.active {
+  background: var(--accent-green);
+  color: white;
+}
+
+.shop-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-secondary);
+  padding: 8px 15px;
+  border-radius: 4px;
+  width: 250px;
+}
+
+.shop-search svg {
+  color: var(--text-secondary);
+}
+
+.shop-search input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 13px;
+  outline: none;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.shop-item {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.shop-item:hover {
+  transform: translateY(-3px);
+}
+
+.shop-item.owned {
+  opacity: 0.7;
+}
+
+.item-preview {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-emoji {
+  font-size: 48px;
+}
+
+.item-letter {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.item-details {
+  padding: 12px;
+}
+
+.item-name {
+  display: block;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.item-rarity {
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+.buy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  padding: 10px;
+  background: var(--accent-green);
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.buy-btn:hover {
+  opacity: 0.9;
+}
+
+.buy-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.buy-btn.owned {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.buy-btn .robux-icon {
+  color: inherit;
+  font-weight: bold;
+}
