@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FiSearch, FiBell, FiSettings, FiUser, FiLogOut, FiChevronDown } from 'react-icons/fi';
+import { FiSearch, FiBell, FiSettings, FiUser, FiLogOut } from 'react-icons/fi';
 import './Navbar.css';
 
 function Navbar() {
@@ -17,41 +17,31 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-left">
-        <Link to="/" className="nav-logo">
-          <span className="logo-icon">C</span>
-          <span className="logo-text">Creatoplay</span>
-        </Link>
+        <Link to="/" className="nav-logo">Creatoplay</Link>
         <div className="nav-links">
-          <Link to="/discover">Discover</Link>
           <Link to="/charts">Charts</Link>
+          <Link to="/discover">Marketplace</Link>
           <Link to="/create">Create</Link>
-          <Link to="/robux" className="robux-link">
-            <span className="robux-icon">R$</span>
-            <span>{userProfile?.robux || 0}</span>
-          </Link>
+          <Link to="/robux">Robux</Link>
         </div>
       </div>
 
       <div className="nav-center">
         <div className="search-bar">
           <FiSearch />
-          <input type="text" placeholder="Search games..." />
+          <input type="text" placeholder="Search" />
         </div>
       </div>
 
       <div className="nav-right">
         {currentUser ? (
           <>
-            <button className="nav-icon-btn">
-              <FiBell />
-            </button>
             <div className="profile-dropdown" onMouseLeave={() => setShowDropdown(false)}>
               <button className="profile-btn" onClick={() => setShowDropdown(!showDropdown)}>
                 <div className="profile-avatar" style={{ backgroundColor: userProfile?.avatar?.torsoColor || '#4a90d9' }}>
                   {userProfile?.username?.[0]?.toUpperCase() || 'U'}
                 </div>
                 <span className="profile-name">{userProfile?.username || 'User'}</span>
-                <FiChevronDown />
               </button>
               {showDropdown && (
                 <div className="dropdown-menu">
@@ -64,9 +54,6 @@ function Navbar() {
                   <Link to="/friends" onClick={() => setShowDropdown(false)}>
                     <FiUser /> Friends
                   </Link>
-                  <Link to="/settings" onClick={() => setShowDropdown(false)}>
-                    <FiSettings /> Settings
-                  </Link>
                   <div className="dropdown-divider"></div>
                   <button onClick={handleLogout}>
                     <FiLogOut /> Log Out
@@ -74,6 +61,17 @@ function Navbar() {
                 </div>
               )}
             </div>
+            <button className="nav-icon-btn notification-btn">
+              <FiBell />
+              <span className="notification-badge">1</span>
+            </button>
+            <Link to="/robux" className="robux-display">
+              <span className="robux-icon">R$</span>
+              <span>{userProfile?.robux || 0}</span>
+            </Link>
+            <Link to="/settings" className="nav-icon-btn">
+              <FiSettings />
+            </Link>
           </>
         ) : (
           <div className="auth-buttons">
