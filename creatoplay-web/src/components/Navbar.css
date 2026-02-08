@@ -81,7 +81,7 @@
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
 }
 
 .profile-dropdown {
@@ -91,7 +91,7 @@
 .profile-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -103,15 +103,16 @@
 }
 
 .profile-avatar {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-weight: 600;
-  font-size: 10px;
+  font-size: 11px;
+  flex-shrink: 0;
 }
 
 .profile-name {
@@ -125,7 +126,7 @@
   top: 100%;
   right: 0;
   margin-top: 8px;
-  background: var(--bg-secondary);
+  background: #232429;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   min-width: 150px;
@@ -139,12 +140,12 @@
   align-items: center;
   gap: 8px;
   width: 100%;
-  padding: 7px 12px;
+  padding: 8px 12px;
   background: none;
   border: none;
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
   cursor: pointer;
   transition: all 0.2s;
   text-align: left;
@@ -192,11 +193,11 @@
   position: absolute;
   top: -4px;
   right: -4px;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background: #e74c3c;
   border-radius: 50%;
-  font-size: 8px;
+  font-size: 9px;
   color: white;
   display: flex;
   align-items: center;
@@ -206,13 +207,13 @@
 .robux-display {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
   color: var(--text-primary);
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
   background: #393b41;
-  padding: 4px 8px;
-  border-radius: 12px;
+  padding: 5px 10px;
+  border-radius: 15px;
 }
 
 .robux-display:hover {
@@ -222,7 +223,7 @@
 .robux-icon {
   color: var(--accent-green);
   font-weight: bold;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .auth-buttons {
